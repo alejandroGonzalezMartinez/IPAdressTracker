@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:focus {
+    outline: none;
+}
+
+:root {
+    --very-dark-gray: hsl(0, 0%, 17%);
+    --dark-gray: hsl(0, 0%, 59%);
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 35% 1fr;
+    font-family: 'Rubik'
+}
+
+img {
+    display: block;
+}
+
+button {
+    border: none;
+}
+
+.header {
+    background-image: url(../images/pattern-bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px;
+}
+
+.title {
+    color: #eee;
+    font-size: 26px;
+}
+
+.tracker {
+    width: 90%;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    width: 85%;
+    height: 50px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    padding: 0 20px;
+}
+
+.button {
+    width: 15%;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    transition: background-color .1s;
+}
+
+@media (hover: hover) {
+    .button:hover {
+        background-color: #444;
+    }
+}
+
+@media (hover: none) {
+    .button:active {
+        background-color: #444;
+    }
+}
+
+.main {
+    position: relative;
+}
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1000;
+    transform: translateY(-35%);
+    width: 90%;
+    max-width: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.box h4 {
+    color: var(--dark-gray);
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.box span {
+    font-weight: 500;
+    color: var(--very-dark-gray);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .header {
+        background-image: url(../images/pattern-bg-desktop.png);
+    }
+    
+    .box {
+        max-width: 768px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        justify-content: center;
+        padding: 30px 30px;
+        text-align: start;
+        font-size: 20px;
+    }
+
+    .box > div {
+        display: flex;
+        flex-direction: column;   
+        align-items: center;
+    }
+}
