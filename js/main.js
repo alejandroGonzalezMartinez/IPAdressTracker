@@ -11,16 +11,14 @@ const $isp = document.querySelector('.isp')
 async function createMap(ipOrDomain) {
     const API = `https://geo.ipify.org/api/v2/country,city?apiKey=at_6gvXZtImjQ0uYdFPA7pSY1mwKwLwR`
 
-    const suffix = (() => {
-        return (
-            /^(\d{1,3}\.){3}\d{1,3}$/.test(ipOrDomain)
-            ? '&ipAddress='
-            :'&domain='
-        )
-    })()
+    const suffix = (
+        /^(\d{1,3}\.){3}\d{1,3}$/.test(ipOrDomain)
+        ? '&ipAddress='
+        :'&domain='
+    ) + ipOrDomain
 
     try {
-        const res = await fetch(ipOrDomain ? API + suffix + ipOrDomain : API)
+        const res = await fetch(ipOrDomain ? API + suffix : API)
         const data = await res.json()
 
         const { ip } = data
