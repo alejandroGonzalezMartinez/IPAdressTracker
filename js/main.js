@@ -21,9 +21,8 @@ async function createMap(ipOrDomain) {
         const res = await fetch(ipOrDomain ? API + suffix : API)
         const data = await res.json()
 
-        const { ip } = data
+        const { ip, isp } = data
         const { lat, lng, city, region, timezone } = data.location
-        const { isp } = data
 
         let mapContainer = document.querySelector('#map')
         document.querySelector('.main').removeChild(mapContainer)
