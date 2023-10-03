@@ -14,7 +14,7 @@ async function createMap(ipOrDomain) {
     const suffix = (
         /^(\d{1,3}\.){3}\d{1,3}$/.test(ipOrDomain)
         ? '&ipAddress='
-        :'&domain='
+        : '&domain='
     ) + ipOrDomain
 
     try {
